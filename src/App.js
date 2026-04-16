@@ -560,23 +560,13 @@ const api = async (path, options = {}, retries = 3) => {
         },
         ...options,
       });
-      return res.json();
+      const data = await res.json();
+      return data;
     } catch (err) {
       if (attempt === retries) throw err;
-      // Wait before retrying (longer each time)
       await new Promise(r => setTimeout(r, 1000 * attempt));
     }
   }
-};
-  const token = localStorage.getItem("luxtech_token");
-  const res = await fetch(`${API}${path}`, {
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    ...options,
-  });
-  return res.json();
 };
 
 /* ─────────────────────────────────────────────────────────────────
