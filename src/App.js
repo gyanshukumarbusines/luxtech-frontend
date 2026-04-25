@@ -1508,6 +1508,12 @@ function CheckoutPage({ nav, cart, subtotal, discount, shipping, total, coupon, 
         }
         else showToast(d.message || "Order failed, please try again");
       }
+    } catch (err) {
+      showToast(`Error: ${err.message}`);
+    } finally {
+      setPlacing(false);
+    }
+  };
 
           {/* Payment */}
           <div className="fbox">
@@ -1581,6 +1587,7 @@ function CheckoutPage({ nav, cart, subtotal, discount, shipping, total, coupon, 
               </div>
             )}
           </div>
+        </div>
         </div>
 
         {/* Order Summary */}
