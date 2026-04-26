@@ -1587,6 +1587,7 @@ function CheckoutPage({ nav, cart, subtotal, discount, shipping, total, coupon, 
               </div>
             )}
           </div>
+          </div>
         {/* Order Summary */}
         <div className="cksum">
           <div className="sumh">Your Order</div>
