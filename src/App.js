@@ -1840,7 +1840,7 @@ function AdminPage({ showToast, api, apiOnline }) {
       <aside className="adside">
         <div className="adlogo">⚡ Admin Panel</div>
         {[["dashboard","◈ Dashboard"],["products","📦 Products"],["orders","🛒 Orders"],["users","👥 Users"]].map(([id,l]) => (
-          <button key={id} className={`anbtn${sec===id?" on":""}`} onClick={()=>setSec(id)}>{l}</button>
+          <button key={id} className={`anbtn${sec===id?" on":""}`} onClick={()=>{setSec(id); if(id==="orders") api("/api/admin/orders").then(d=>{if(d.success&&d.orders?.length)setAdminOrders(d.orders);});}}>{l}</button>
         ))}
       </aside>
 
@@ -2020,7 +2020,7 @@ function AdminPage({ showToast, api, apiOnline }) {
             <div className="adh">Orders</div>
             <div className="adsub">Manage all customer orders</div>
             <div className="sbox">
-              <div className="sbhd"><span className="sbtit">{MOCK_ORDERS.length} Orders</span></div>
+              <div className="sbhd"><span className="sbtit">{adminOrders.length} Orders</span></div>
               <table className="atbl">
                 <thead><tr><th>Order ID</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th>Actions</th></tr></thead>
                 <tbody>
