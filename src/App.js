@@ -1828,6 +1828,7 @@ function AdminPage({ showToast, api, apiOnline }) {
       }
     });
     api("/api/admin/users").then(d => { if (d.success) setAdminUsers(d.users); });
+    api("/api/admin/orders").then(d => { if (d.success && d.orders?.length) setAdminOrders(d.orders); });
     api("/api/products").then(d => { if (d.success && d.products?.length) setProds(d.products); });
   }, []);
 
