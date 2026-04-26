@@ -1892,7 +1892,7 @@ function AdminPage({ showToast, api, apiOnline }) {
               <table className="atbl">
                 <thead><tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Status</th><th>Action</th></tr></thead>
                 <tbody>
-                  {adminOrders.slice(0,5).map(o => (
+                  {adminOrders.map(o => (
                     <tr key={o.id}>
                       <td style={{fontWeight:600}}>{o.order_number||o.id}</td>
                       <td style={{color:"var(--mt)"}}>{o.user_name||o.items?.[0]||"—"}</td>
