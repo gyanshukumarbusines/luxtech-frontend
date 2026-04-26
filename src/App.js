@@ -1514,6 +1514,32 @@ function CheckoutPage({ nav, cart, subtotal, discount, shipping, total, coupon, 
       setPlacing(false);
     }
   };
+  return (
+    <div className="ckpage">
+      <div className="eye">Final Step</div>
+      <h1 className="stitle" style={{marginBottom:0}}>Secure <em>Checkout</em></h1>
+      <div className="cklay">
+        <div>
+          {/* Shipping */}
+          <div className="fbox">
+            <div className="fhd">01 — Shipping Address</div>
+            <div className="fgrid2">
+              {[["fname","First Name *","John"],["lname","Last Name *","Doe"]].map(([k,l,ph])=>(
+                <div className="fgrp" key={k}><label className="flbl">{l}</label><input className="fin" value={form[k]} onChange={e=>upd(k,e.target.value)} placeholder={ph}/></div>
+              ))}
+              <div className="fgrp fful"><label className="flbl">Email *</label><input className="fin" value={form.email} onChange={e=>upd("email",e.target.value)} placeholder="john@example.com"/></div>
+              <div className="fgrp"><label className="flbl">Phone</label><input className="fin" value={form.phone} onChange={e=>upd("phone",e.target.value)} placeholder="+91 9876543210"/></div>
+              <div className="fgrp fful"><label className="flbl">Address *</label><input className="fin" value={form.addr} onChange={e=>upd("addr",e.target.value)} placeholder="123 Main Street"/></div>
+              <div className="fgrp"><label className="flbl">City</label><input className="fin" value={form.city} onChange={e=>upd("city",e.target.value)} placeholder="Mumbai"/></div>
+              <div className="fgrp"><label className="flbl">State</label><input className="fin" value={form.state} onChange={e=>upd("state",e.target.value)} placeholder="Maharashtra"/></div>
+              <div className="fgrp"><label className="flbl">PIN Code</label><input className="fin" value={form.zip} onChange={e=>upd("zip",e.target.value)} placeholder="400001"/></div>
+              <div className="fgrp fful"><label className="flbl">Country</label>
+                <select className="fin" value={form.country} onChange={e=>upd("country",e.target.value)}>
+                  {["India","United States","United Kingdom","UAE","Singapore","Australia"].map(c=><option key={c}>{c}</option>)}
+                </select>
+              </div>
+            </div>
+          </div>
 
           {/* Payment */}
           <div className="fbox">
@@ -1573,7 +1599,7 @@ function CheckoutPage({ nav, cart, subtotal, discount, shipping, total, coupon, 
                 <p style={{fontSize:10,color:"var(--mt)",marginTop:10,textAlign:"center"}}>
                   🔒 Test card: 4242 4242 4242 4242 | Any expiry & CVV
                 </p>
-              </div>
+                </div>
             )}
 
             {pay === "razorpay" && (
@@ -1587,6 +1613,7 @@ function CheckoutPage({ nav, cart, subtotal, discount, shipping, total, coupon, 
               </div>
             )}
           </div>
+        </div>
         {/* Order Summary */}
         <div className="cksum">
           <div className="sumh">Your Order</div>
