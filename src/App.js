@@ -1784,6 +1784,16 @@ function AccountPage({ user, logoutUser, orders, nav, wish, toggleWish, addToCar
                       ))}
                     </div>
                     <div style={{fontSize:10,color:"var(--mt)",marginTop:14}}>Tracking: {o.tracking_number||o.tracking}</div>
+                    <div style={{marginTop:16,borderRadius:4,overflow:"hidden",border:"1px solid var(--bd)"}}>
+                      <iframe
+                        title="delivery-map"
+                        width="100%"
+                        height="180"
+                        frameBorder="0"
+                        style={{display:"block"}}
+                        src={`https://maps.google.com/maps?q=${encodeURIComponent(o.shipping_address||o.city||"Patna, Bihar, India")}&output=embed`}
+                      />
+                    </div>
                   </div>
                 );
               })}
