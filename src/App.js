@@ -190,7 +190,7 @@ const ADMIN_USERS = [
 /* ─────────────────────────────────────────────────────────────────
    HELPERS
 ───────────────────────────────────────────────────────────────── */
-const fmt   = n => "$" + Number(n).toLocaleString();
+const fmt   = n => "₹" + Number(n).toLocaleString();
 const stars = r => "★".repeat(Math.floor(r)) + "☆".repeat(5 - Math.floor(r));
 const badgeCls = b => ({ Bestseller:"b-best", New:"b-new", Sale:"b-sale", Premium:"b-prem" }[b] || "b-new");
 
