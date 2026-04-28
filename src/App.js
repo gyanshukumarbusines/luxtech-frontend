@@ -795,7 +795,7 @@ function HomePage({ nav, addToCart, toggleWish, wish, showToast, api }) {
   const [testimonials, setTestimonials] = useState(TESTIMONIALS);
 
   useState(() => {
-    api("/api/reviews/latest").then(d => {
+    api("/api/reviews/latest/all").then(d => {
       if (d.success && d.reviews?.length) {
         setTestimonials(d.reviews.map(r => ({
           name: r.user_name || "Customer",
