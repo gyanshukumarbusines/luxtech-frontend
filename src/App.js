@@ -1805,7 +1805,7 @@ function AccountPage({ user, logoutUser, orders, nav, wish, toggleWish, addToCar
                         height="180"
                         frameBorder="0"
                         style={{display:"block"}}
-                        src={`https://www.openstreetmap.org/export/embed.html?bbox=85.0,25.0,85.5,25.5&layer=mapnik&marker=25.5941,85.1376`}
+                        src={`https://maps.google.com/maps?q=Patna+Bihar+India&t=&z=13&ie=UTF8&iwloc=&output=embed`}
                       />
                     </div>
                   </div>
