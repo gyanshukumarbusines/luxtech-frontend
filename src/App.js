@@ -1805,7 +1805,7 @@ function AccountPage({ user, logoutUser, orders, nav, wish, toggleWish, addToCar
                         height="180"
                         frameBorder="0"
                         style={{display:"block"}}
-                        src={`https://maps.google.com/maps?q=Patna+Bihar+India&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+                        src={`https://maps.google.com/maps?q=Patna+Bihar+India&t=&z=16&ie=UTF8&iwloc=&output=embed`}
                       />
                     </div>
                   </div>
