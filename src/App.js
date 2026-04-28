@@ -790,8 +790,23 @@ function Navbar({ page, nav, cartCount, user, searchQ, setSearchQ }) {
 /* ─────────────────────────────────────────────────────────────────
    HOME PAGE
 ───────────────────────────────────────────────────────────────── */
-function HomePage({ nav, addToCart, toggleWish, wish, showToast }) {
+function HomePage({ nav, addToCart, toggleWish, wish, showToast, api }) {
   const [email, setEmail] = useState("");
+  const [testimonials, setTestimonials] = useState(TESTIMONIALS);
+
+  useState(() => {
+    api("/api/reviews/latest").then(d => {
+      if (d.success && d.reviews?.length) {
+        setTestimonials(d.reviews.map(r => ({
+          name: r.user_name || "Customer",
+          role: "Verified Buyer",
+          initials: (r.user_name || "C").charAt(0).toUpperCase(),
+          rating: r.rating,
+          text: r.comment,
+        })));
+      }
+    });
+  }, []);
   return (
     <main>
       {/* HERO */}
@@ -887,7 +902,7 @@ function HomePage({ nav, addToCart, toggleWish, wish, showToast }) {
           <h2 className="stitle">What Our <em>Clients</em> Say</h2>
         </div>
         <div className="tgrid">
-          {TESTIMONIALS.map(t => (
+          {testimonials.map(t => (
             <div className="tcard" key={t.name}>
               <div className="tstars">{"★".repeat(t.rating)}</div>
               <p className="ttxt">"{t.text}"</p>
