@@ -1717,7 +1717,7 @@ function AccountPage({ user, logoutUser, orders, nav, wish, toggleWish, addToCar
                   <span className={`ostatus ${statusCls(o.status)}`}>{o.status}</span>
                 </div>
                 <div className="oitems">{(o.items||[]).map(i=>i.name||i).join(", ")}</div>
-                <div className="opr">${Number(o.total).toLocaleString()}</div>
+                <div className="opr">₹{Number(o.total).toLocaleString()}</div>
                 <div className="otr">Tracking: {o.tracking_number || o.tracking}</div>
                 {(o.status === "pending" || o.status === "Pending") && (
                   <button style={{marginTop:12,padding:"8px 16px",background:"transparent",border:"1px solid var(--er)",color:"var(--er)",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}
