@@ -922,7 +922,13 @@ function HomePage({ nav, addToCart, toggleWish, wish, showToast, api }) {
         <p style={{fontSize:13,color:"var(--mt)",maxWidth:420,margin:"0 auto"}}>Exclusive launches, early access and curated recommendations.</p>
         <div className="nlform">
           <input className="nlin" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} />
-          <button className="nlbtn" onClick={() => { if(email){ showToast("Welcome to LuxTech! ✦"); setEmail(""); } }}>Subscribe</button>
+          <button className="nlbtn" onClick={async () => { 
+  if(email){ 
+    const d = await api("/api/newsletter/subscribe", {method:"POST", body:JSON.stringify({email})});
+    showToast(d.message || "Welcome to LuxTech! ✦"); 
+    setEmail(""); 
+  } 
+}}>Subscribe</button>
         </div>
       </section>
     </main>
