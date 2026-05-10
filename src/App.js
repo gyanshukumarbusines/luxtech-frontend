@@ -753,21 +753,13 @@ export default function App() {
      <Footer nav={nav} />
       <div className={`toast${toast ? " show" : ""}`}>{toast}</div>
 
-      {/* WhatsApp Button */}
-      <a href="https://wa.me/919896332658" target="_blank" rel="noopener noreferrer"
-        style={{position:"fixed",bottom:70,right:20,width:52,height:52,background:"#25D366",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,zIndex:999,boxShadow:"0 4px 12px rgba(37,211,102,.4)",textDecoration:"none",transition:"transform .2s"}}
-        onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"}
+      {/* WhatsApp Chat Button */}
+      <a href="https://wa.me/919896332658?text=Hi! I need help with my LuxTech order" target="_blank" rel="noopener noreferrer"
+        style={{position:"fixed",bottom:130,right:20,width:54,height:54,background:"#25D366",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:28,zIndex:999,boxShadow:"0 4px 16px rgba(37,211,102,.5)",textDecoration:"none",transition:"transform .2s"}}
+        onMouseEnter={e=>e.currentTarget.style.transform="scale(1.12)"}
         onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
-        💬
+        📱
       </a>
-
-      {/* Tawk.to Live Chat */}
-      {useState(()=>{
-        const s = document.createElement("script");
-        s.src = "https://embed.tawk.to/embed";
-        s.async = true;
-        document.head.appendChild(s);
-      },[])}
     </>
   );
 }
