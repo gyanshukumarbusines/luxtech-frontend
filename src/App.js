@@ -2090,7 +2090,7 @@ function AdminPage({ showToast, api, apiOnline }) {
                           <select className="ssel" style={{fontSize:9,padding:"3px 6px"}} defaultValue=""
                             onChange={async(e)=>{
                               if(!e.target.value) return;
-                              const d = await api(`/api/notifications/order/${o.id}/status`,{method:"PUT",body:JSON.stringify({status:e.target.value})});
+                              const d = await api(`/api/orders/admin/${o.id}/status`,{method:"PUT",body:JSON.stringify({status:e.target.value})});
                               showToast(d.message);
                               e.target.value="";
                             }}>
